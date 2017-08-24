@@ -2,7 +2,8 @@
 
 using namespace std;
 
-int money, card1, card2, dec, dcard1, dcard2;
+bool game = true;
+int money, card1, card2, dec, dcard1, dcard2, call, bet;
 char one, two, three, four, five, six, seven, eight, nine, ten, jack, queen, king, ace;
 int printData(){
   cout<<"Money: "<<money<<"\n";
@@ -12,8 +13,16 @@ int printData(){
 int getCards(){
  return rand() % 13 + 1; 
 }
+
+int game(){
+  cout<<"Call(1) Bet(2) or Fold(3)\n";
+  switch(){
+    case 1:  money -= call;break;
+    case 2: cout<<"How much\n";cin >> bet; money -=bet; call = bet;break;
+    case 3: exit; 
+  }
+}
 int main() {
-  game = true;
   srand(time(0));
   card1 = getCards();
   card2 = getCards();
